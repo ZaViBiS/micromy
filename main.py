@@ -8,6 +8,8 @@ import os
 import converter
 import remo
 import os.path
+import logger
+import time
 
 
 bot = telebot.TeleBot(config.TOKEN)
@@ -117,4 +119,9 @@ def query_handler(call):
                              'There was some kind of error.')
 
 
-bot.polling(none_stop=True)
+while True:
+    try:
+        bot.polling(none_stop=True)
+    except Exception as e:
+        logger.error(e)
+        time.sleep(15)
