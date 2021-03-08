@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../GUI on wxPython/.idea/GUI on wxPython.iml" filepath="$PROJECT_DIR$/../GUI on wxPython/.idea/GUI on wxPython.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/telegram_bot.iml" filepath="$PROJECT_DIR$/.idea/telegram_bot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../socket/ui_relese/.idea/ui_relese.iml" filepath="$PROJECT_DIR$/../socket/ui_relese/.idea/ui_relese.iml" />
+    </modules>
+  </component>
+</project>
