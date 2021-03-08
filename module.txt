@@ -1,4 +1,0 @@
-pyTelegramBotAPI
-logger
-pytube
-ffmpeg ( not pip module )

@@ -1,12 +1,12 @@
 '''Telegram bot для скачивания аудио и видео с YouTube по ссылке'''
 
-import config
+from src import config
 import telebot
 from pytube import YouTube
 import random
 import os
-import converter
-import remo
+from src import converter
+from src import remo
 import os.path
 import logger
 import time
