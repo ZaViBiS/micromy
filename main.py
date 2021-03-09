@@ -124,4 +124,7 @@ while True:
         bot.polling(none_stop=True)
     except Exception as e:
         logger.error(e)
+        f = open('log.txt', 'a')
+        f.write(logger.error(e))
+        f.close()
         time.sleep(15)
