@@ -17,7 +17,10 @@ def internet_connect():  # Проверка подключения к интер
     from time import sleep
 
     while True:
+        
         try:
-            get('http://google.com/')
+            if get('http://google.com/'):
+                break
+
         except:
             sleep(10)
