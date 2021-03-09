@@ -17,10 +17,10 @@ def internet_connect():  # Проверка подключения к интер
     from time import sleep
 
     while True:
-        
-        try:
-            if get('http://google.com/'):
-                break
 
+        try:
+            if get('https://habr.com/') == '<Response [200]>':
+                break
+            break
         except:
             sleep(10)
