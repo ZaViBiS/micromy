@@ -13,15 +13,20 @@ import time
 
 bot = telebot.TeleBot(config.TOKEN)
 URL = ''
+# '[2021/03/10 09:25:43]' -> '[2021-03-10 09-25-43].txt'
+FILE_NAME = remo.normal_datetime().replace('/', '-').replace(':', '-') + '.txt'
 
 
 while remo.internet_connect() == False:
     time.sleep(10)
 
+
 # запись в лог
-remo.logger(remo.normal_datetime() + ' internet is available')
+remo.logger(FILE_NAME, remo.normal_datetime() + ' internet is available')
 
 # При получении команд 'id' & 'chat' отправляет id чата из которого пришла команда
+
+
 @bot.message_handler(commands=['id', 'chat'])
 def info(message):
     bot.send_message(message.chat.id, message.chat.id)
@@ -120,7 +125,8 @@ def query_handler(call):
             os.remove(real)
             os.remove(road)
 
-            remo.logger(remo.normal_datetime() + ' successfully sent to ' + call.from_user.first_name)
+            remo.logger(FILE_NAME, remo.normal_datetime() +
+                        ' successfully sent to ' + call.from_user.first_name)
 
         except:
             bot.send_message(call.message.chat.id,
@@ -131,5 +137,5 @@ while True:
     try:
         bot.polling(none_stop=True)
     except Exception as e:
-        remo.logger(remo.normal_datetime() + e)
+        remo.logger(FILE_NAME, remo.normal_datetime() + e)
         time.sleep(15)
