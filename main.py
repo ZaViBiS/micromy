@@ -8,7 +8,6 @@ import os
 from src import converter
 from src import remo
 import os.path
-import logger
 import time
 
 
@@ -124,8 +123,8 @@ while True:
     try:
         bot.polling(none_stop=True)
     except Exception as e:
-        logger.error(e)
+        print(e)
         f = open('log.txt', 'a')
-        f.write(logger.error(e))
+        f.write(e)
         f.close()
         time.sleep(15)
