@@ -20,9 +20,6 @@ FILE_NAME = remo.normal_datetime().replace('/', '-').replace(':', '-') + '.txt'
 while remo.internet_connect() == False:
     time.sleep(10)
 
-# Создание файла
-open('log/' + FILE_NAME, 'w').close()
-
 
 # запись в лог
 remo.logger(FILE_NAME, remo.normal_datetime() + ' internet is available')
