@@ -20,3 +20,17 @@ def internet_connect():  # Проверка подключения к интер
     except :
         return False
     return True
+
+
+def logger(text):
+    f = open('log.txt', 'a')
+    f.write(str(text))
+    f.close()
+
+
+def normal_datetime(): # [2021/03/10 09:25:43]
+    from datetime import datetime
+
+    data = datetime.now()
+
+    return '[{0}/{1}/{2} {3}:{4}:{5}]'.format(data.year, data.month, data.day, data.hour, data.minute, data.second)

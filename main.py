@@ -17,7 +17,9 @@ URL = ''
 
 while remo.internet_connect() == False:
     time.sleep(10)
-print('internet is available')
+
+# запись в лог
+remo.logger(remo.normal_datetime() + ' internet is available')
 
 # При получении команд 'id' & 'chat' отправляет id чата из которого пришла команда
 @bot.message_handler(commands=['id', 'chat'])
@@ -107,7 +109,7 @@ def query_handler(call):
             if os.stat(real).st_size <= 50000000:
                 audio = open(real, 'rb')
                 bot.send_message(call.message.chat.id, 'Sending...')
-                if call.from_user.first_name == 'ZaViBiS':
+                if call.from_user.first_name == 'неть':
                     bot.send_audio(config.CHAT, audio)
                 else:
                     bot.send_audio(call.message.chat.id, audio)
@@ -118,7 +120,7 @@ def query_handler(call):
             os.remove(real)
             os.remove(road)
 
-            print(call.from_user.first_name)
+            remo.logger(remo.normal_datetime() + ' successfully sent to ' + call.from_user.first_name)
 
         except:
             bot.send_message(call.message.chat.id,
@@ -129,9 +131,5 @@ while True:
     try:
         bot.polling(none_stop=True)
     except Exception as e:
-        print(e)
-        f = open('log.txt', 'a')
-        f.write(e)
-        f.close()
+        remo.logger(remo.normal_datetime() + e)
         time.sleep(15)
-# [2021/03/10 09:25:43]
