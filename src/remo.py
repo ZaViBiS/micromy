@@ -22,9 +22,9 @@ def internet_connect():  # Проверка подключения к интер
     return True
 
 
-def logger(text):
-    f = open('log.txt', 'a')
-    f.write(str(text))
+def logger(FILE_NAME, text):
+    f = open('log/' + FILE_NAME, 'a')
+    f.write(str(text) + '\n')
     f.close()
 
 
