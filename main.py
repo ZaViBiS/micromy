@@ -117,6 +117,9 @@ def query_handler(call):
                                  'The file is too large.')
             os.remove(real)
             os.remove(road)
+
+            print(call.from_user.first_name)
+
         except:
             bot.send_message(call.message.chat.id,
                              'There was some kind of error.')
