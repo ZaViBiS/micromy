@@ -14,7 +14,10 @@ import time
 bot = telebot.TeleBot(config.TOKEN)
 URL = ''
 
-# remo.internet_connect()
+
+while remo.internet_connect() == False:
+    time.sleep(10)
+
 
 # При получении команд 'id' & 'chat' отправляет id чата из которого пришла команда
 @bot.message_handler(commands=['id', 'chat'])
