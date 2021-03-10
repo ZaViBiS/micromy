@@ -17,7 +17,7 @@ URL = ''
 
 while remo.internet_connect() == False:
     time.sleep(10)
-
+print('internet is available')
 
 # При получении команд 'id' & 'chat' отправляет id чата из которого пришла команда
 @bot.message_handler(commands=['id', 'chat'])
@@ -131,3 +131,4 @@ while True:
         f.write(e)
         f.close()
         time.sleep(15)
+# [2021/03/10 09:25:43]
