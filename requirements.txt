@@ -1,3 +1,0 @@
-pyTelegramBotAPI
-pytube
-# ffmpeg ( not pip module )

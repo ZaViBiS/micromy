@@ -1,1 +1,0 @@
-setsid python main.py
