@@ -1,0 +1,2 @@
+[2021/5/15 21:8:9] internet is available
+[2021/5/15 21:10:9] successfully sent to неть
