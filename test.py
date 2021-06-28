@@ -1,9 +1,4 @@
-from config import t
+import function
 
-for x in t:
-    print(x)
-rel = 'Surf Curse - Freaks (8D Audio)-44MDCERDCLM.mp3'
+function.ffmpeg_convert_webm_to_m4a()
 
-
-if f"{t['title']}-{t['id']}.mp3" == rel:
-    print(1)
