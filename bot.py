@@ -17,9 +17,12 @@ def start(message):
 @bot.message_handler(content_types=['text'])
 def text(message):
     try:
-        download(message.text)
-        filename, old_filename = ffmpeg_convert_webm_to_m4a() # new name
-        os.remove('file/' + old_filename)
+        file = download(message.text)
+        if file[1] != 'm4a':
+            filename, old_filename = ffmpeg_convert_webm_to_m4a(file[0]) # new name
+            os.remove('file/' + old_filename)
+        else:
+            filename = 'file/' + file[0] + '.m4a'
         audio = open(filename, 'rb')
         bot.send_audio(message.chat.id, audio, timeout=60)
         audio.close()

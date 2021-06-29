@@ -7,7 +7,12 @@ def download(url):
     '''audio_downloder = youtube_dl.YoutubeDL(ydl_opts)
     return audio_downloder.extract_info(url)'''
     video = pafy.new(url)
-    video.getbestaudio().download('file/')
+    try:
+        video.getbestaudio(preftype='m4a').download('file/')
+        return video.title, 'm4a'
+    except:
+        video.getbestaudio(preftype='webm').download('file/')
+
     '''audiostreams = video.audiostreams
     for a in audiostreams:
         print(a.bitrate, a.extension, a.get_filesize())'''
@@ -21,8 +26,8 @@ def name_and_rename(trash):
     return new_name
 '''
 
-def ffmpeg_convert_webm_to_m4a():
-    filename = os.listdir('file/')[0]
+def ffmpeg_convert_webm_to_m4a(filename):
+    # filename = os.listdir('file/')[0]
     new_name = filename[:-5] + '.m4a'
-    os.system(f'ffmpeg -i file/\'{filename}\' -vn \'{new_name}\' -y')
+    os.system(f'ffmpeg -i file/\'{filename}.webm\' -vn \'{new_name}\' -y')
     return new_name, filename

@@ -1,3 +1,4 @@
 pyTelegramBotAPI
 pafy
+youtube-dl
 # ffmpeg
