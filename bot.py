@@ -8,7 +8,7 @@ from config import *
 
 
 bot = telebot.TeleBot(TOKEN)
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
 @bot.message_handler(commands=['start'])
 def start(message):
@@ -17,20 +17,16 @@ def start(message):
 @bot.message_handler(content_types=['text'])
 def text(message):
     try:
-        old_filename = download(message.text)
-        filename = ffmpeg_convert_webm_to_m4a() # new name
-        print(filename)
-        audio = open('ASMR try not to tingle! (tapping, breathing, licking) *use headphones*.mp3', 'rb')
-        bot.send_audio(message.chat.id, audio)
+        download(message.text)
+        filename, old_filename = ffmpeg_convert_webm_to_m4a() # new name
+        os.remove('file/' + old_filename)
+        audio = open(filename, 'rb')
+        bot.send_audio(message.chat.id, audio, timeout=60)
         audio.close()
         os.remove(filename)
-        os.remove('.file/' + old_filename)
     except Exception as e:
         logging.error(e)
         os.remove(filename)
-        os.remove('.file/' + old_filename)
-        
-
 
 
 while True:
